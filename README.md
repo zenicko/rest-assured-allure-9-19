@@ -34,15 +34,53 @@ ___
    demoqa.userName=
    demoqa.password=
  ```
-4. Start all tests by terminal
+2. Start all tests by terminal
    `./gradlew test`
    or only one test 
    `./gradlew test --tests BookStoreTests.noLogTest`
 
+## Quick start to use remote
+1. Create the project in jenkins.
+2. Settings:
+   1. Описание
+   2. Управлением исходным кодом
+      1. [x] `Git`
+      2. Branch to build
+         `*/main`
+   3. Среда сборки
+      1. [x] Abort the build if it's stuck
+         1. `Timeout minutes = 6`
+      2. [x] Add timestamps to the Console Output
+   4. Сборка. Добавить шаг сборки.
+      1. Create/Update Text File
+         1. File Path
+            `src/test/resources/config/users/user.properties`
+         2. [x] Create at Workspace
+         3. Text File Content
+            ```
+               demoqa.userName=t****
+               demoqa.password=a******
+            ```
+         4. File options:
+            [x] Overwrite file
+      2. Invoke Gradle script
+         1. [x] Invoke Gradle
+            1. `Gradle 6.8.3`
+         2. Tasks
+            1. `clean test`
 
 ## What's new
 ___
 
+### REST-assured
+1.  A test falls Sometimes. Add delay 130 ms to each test. "130" was calculated imperially. 
+```
+    @BeforeEach
+    void sleepUp() throws InterruptedException {
+
+        sleep(130);
+    }
+```
 
 
 ## Recourses
@@ -52,3 +90,4 @@ ___
 
 ## Miscellaneous
 ___
+

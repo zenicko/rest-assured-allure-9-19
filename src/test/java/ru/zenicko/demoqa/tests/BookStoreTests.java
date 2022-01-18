@@ -120,6 +120,7 @@ public class BookStoreTests extends TestBase {
                 .body("status", is( "Success"))
                 .extract().response().path("token");
     }
+
     @Test
     @DisplayName("Check the schema JSON of the response api /Account/v1/GenerateToken")
     void authorizationSchemaJSONTest() {
