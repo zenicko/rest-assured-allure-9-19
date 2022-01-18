@@ -1,3 +1,46 @@
 plugins {
     id "java-library"
+    id "io.qameta.allure" version "2.8.1"
+}
+def junitVersition = "5.8.2",
+    restAssuredVersion = "4.4.0",
+    allureVersion = "2.17.2",
+    selenideVersion = "5.24.0"
+
+allure {
+    version = allureVersion
+    autoconfigure = true
+    aspectjweaver = true
+    configuration = "testImplementation"
+    useJUnit5 {
+        version = allureVersion
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$junitVersition",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.aeonbits.owner:owner:1.0.12",
+
+            // Unusable library in tests
+            "com.codeborne:selenide:$selenideVersion"
+    )
+
+    testRuntimeOnly(
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersition",
+            "org.slf4j:slf4j-simple:1.7.33",
+    )
+}
+
+test {
+    useJUnitPlatform()
 }

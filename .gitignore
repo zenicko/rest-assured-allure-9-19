@@ -1,5 +1,9 @@
 .idea/
 .gradle/
+.allure/
+build/
+src/test/resources/config/users/
+src/test/resources/config/local.properties
 
 gradlew
 gradlew.bat
