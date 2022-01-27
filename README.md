@@ -68,12 +68,19 @@ ___
             1. `Gradle 6.8.3`
          2. Tasks
             1. `clean test`
+3. Allure TestOps
+   1. Jenkins. Settings.
+      1. [x] Allure: upload results
+      2. Server: allure-server
+      3. Project. Choice the project: <A name of a project>
+      4. Results. Set path: build/allure-results
+      5. Push `applay` or `save`
 
 ## What's new
 ___
 
 ### REST-assured
-1.  A test falls Sometimes. Add delay 130 ms to each test. "130" was calculated imperially. 
+1.  A test falls Sometimes. Add delay 130 ms or more to each test. "130" was calculated imperially. 
 ```
     @BeforeEach
     void sleepUp() throws InterruptedException {
@@ -85,9 +92,15 @@ ___
 
 ## Recourses
 ___
-
+1. [Jenkins](https://jenkins.autotests.cloud)
+2. [Allure TestOps](https://allure.autotests.cloud)
 
 
 ## Miscellaneous
 ___
-
+1. [How to disable code formatting for some part of the code using comments?](https://stackoverflow.com/questions/3375307/how-to-disable-code-formatting-for-some-part-of-the-code-using-comments)
+```
+// @formatter:off
+...
+// @formatter:on
+```

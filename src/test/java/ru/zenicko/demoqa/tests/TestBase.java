@@ -22,7 +22,6 @@ public class TestBase {
 
     @BeforeEach
     void sleepUp() throws InterruptedException {
-
         sleep(500);
     }
 }

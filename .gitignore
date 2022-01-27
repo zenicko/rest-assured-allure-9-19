@@ -5,5 +5,7 @@ build/
 src/test/resources/config/users/
 src/test/resources/config/local.properties
 
+*.log
+
 gradlew
 gradlew.bat
